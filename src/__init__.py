@@ -1,4 +1,4 @@
-from rest_client import HASS_Rest
+from .rest_client import HASS_Rest
 
 class HASS:
     def __init__(self, address: str, token: str):
