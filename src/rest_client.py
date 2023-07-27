@@ -44,3 +44,6 @@ class HASS_Rest:
     def evaluate_template(self, template: str) -> str:
         return self.handle_exc(self.session.post(self.url("/template"), json={"template": template}))
     
+    def call_service(self, domain: str, service: str, data: Optional[dict] = {}) -> list[State]:
+        return [State(**s) for s in self.handle_exc(self.session.post(self.url(f"/services/{domain}/{service}"), json=data))]
+    
