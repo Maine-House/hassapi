@@ -26,4 +26,7 @@ class HASS_Rest:
     def api_status(self) -> Status:
         return Status(**self.handle_exc(self.session.get(self.url("/"))))
     
+    def get_config(self) -> Config:
+        return Config(**self.handle_exc(self.session.get(self.url("/config"))))
+    
     
