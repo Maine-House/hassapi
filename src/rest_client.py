@@ -34,5 +34,10 @@ class HASS_Rest:
 
     def get_services(self) -> list[Domain]:
         return [Domain(**d) for d in self.handle_exc(self.session.get(self.url("/services")))]
+
+    def get_states(self) -> list[State]:
+        return [State(**s) for s in self.handle_exc(self.session.get(self.url("/states")))]
     
+    def get_state(self, entity: str) -> State:
+        return State(**self.handle_exc(self.session.get(self.url(f"/states/{entity}"))))
     
