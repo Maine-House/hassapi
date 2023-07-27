@@ -1,7 +1,6 @@
 from dotenv import load_dotenv
 load_dotenv()
 import os
-import json
 
 from src import HASS
 
@@ -11,3 +10,4 @@ print(hass.rest.get_config())
 print(hass.rest.get_services())
 print(hass.rest.get_states())
 print(hass.rest.get_state("sensor.zariel_1_bme280_humidity"))
+print(hass.rest.evaluate_template("Current time: {{ now() }}"))

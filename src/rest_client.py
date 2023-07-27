@@ -41,3 +41,6 @@ class HASS_Rest:
     def get_state(self, entity: str) -> State:
         return State(**self.handle_exc(self.session.get(self.url(f"/states/{entity}"))))
     
+    def evaluate_template(self, template: str) -> str:
+        return self.handle_exc(self.session.post(self.url("/template"), json={"template": template}))
+    
