@@ -7,3 +7,5 @@ class HASS:
         self.token = token
         self.rest = HASS_Rest(address, token)
         self.ws = HASS_WS(address, token)
+
+VERSION = "0.1.0"

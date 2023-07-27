@@ -1,4 +1,3 @@
 requests
 websockets
 pydantic
-python-dotenv
