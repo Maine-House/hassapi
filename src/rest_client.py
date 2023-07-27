@@ -29,4 +29,10 @@ class HASS_Rest:
     def get_config(self) -> Config:
         return Config(**self.handle_exc(self.session.get(self.url("/config"))))
     
+    def get_events(self) -> list[EventListener]:
+        return [EventListener(**e) for e in self.handle_exc(self.session.get("/events"))]
+
+    def get_services(self) -> list[Domain]:
+        return [Domain(**d) for d in self.handle_exc(self.session.get(self.url("/services")))]
+    
     
